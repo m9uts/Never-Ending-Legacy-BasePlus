@@ -32,7 +32,7 @@ G.AddData({
 		RESOURCES
 		=======================================================================================*/
 
-		new G.tech({
+		new G.Tech({
 			name:'advancent-fire-sources',
 			desc:'@unlocks [heat]<>[heat] replaces [fire pit]s and does the same thing but only keeps one person warm.',
 			icon:[0,0],
