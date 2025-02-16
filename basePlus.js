@@ -23,7 +23,7 @@ G.AddData({
 			}
 		});
 		G.getDict('fire pit').replacement='heat';
-		G.getDict('fire pit').tick=function(){
+		G.getDict('fire pit').tick=function(me,tick){
 			if (me.replacement) me.hidden=true; else me.hidden=false;
 			var toSpoil=me.amount*0.01;
 			var spent=G.lose(me.name,randomFloor(toSpoil),'decay');
