@@ -14,7 +14,7 @@ G.AddData({
 		new G.Res({
 			name:'heat',
 			displayName:'Heat',
-			desc:'Keeps your tribe warm; each heat reduces illness for 1 people.//Used by some types of crafting.//Will cool over time.',
+			desc:'Keeps your tribe warm; each heat reduces illness for 1 people.//Used by some types of crafting.//Will decay over time.',
 			icon:[0,0],
 			tick:function(me,tick)
 			{
@@ -22,9 +22,9 @@ G.AddData({
 				var spent=G.lose(me.name,randomFloor(toSpoil),'decay');
 			}
 		});
-		G.getDict('fire pit').replacement='heat';
+		//G.getDict('fire pit').replacement='heat';
 		G.getDict('fire pit').tick=function(me,tick){
-			if (me.replacement) me.hidden=true; else me.hidden=false;
+			if (G.has('advancent fire sources')) me.hidden=true; else me.hidden=false;
 			var toSpoil=me.amount*0.01;
 			var spent=G.lose(me.name,randomFloor(toSpoil),'decay');
 		};
@@ -37,9 +37,25 @@ G.AddData({
 			name:'advancent fire sources',
 			desc:'@unlocks [heat]<>[heat] replaces [fire pit]s and does the same thing but only keeps one person warm.',
 			icon:[0,0],
-			cost:{'insight':15},
-			req:{'fire-making':true},
-			effects:[],
+			cost:{'insight':10},
+			req:{'fire-making':true,'cities':true},
+			effects:[
+				{'type':'function',func:function(){
+					G.getDict('firekeeper').modes[0]['desc']='Make 10 [heat] from 20 [stick]s each.';
+					G.getDict('firekeeper').effects[0]['into']={'heat':10};
+					G.getDict('firekeeper').modes[1]['desc']='Turn [meat] and [seafood] into [cooked meat] and [cooked seafood] with [heat]';
+				 	G.getDict('firekeeper').effects[1]['from']={'meat':1,'heat':0.01};
+					G.getDict('firekeeper').effects[2]['from']={'seafood':1,'heat':0.01};
+					G.getDict('firekeeper').modes[2]['desc']='Turn 1 [meat] or [seafood] into 2 [cured meat] or [cured seafood] using [salt] with [heat]';
+					G.getDict('firekeeper').effects[3]['from']={'meat':1,'salt':1,'heat':0.01};
+					G.getDict('firekeeper').effects[4]['from']={'seafood':1,'salt':1,'heat':0.01};
+
+					G.getDict('potter').modes[0]['desc']='Craft [pot]s from 3 [clay] each; requires [heat].';
+					G.getDict('potter').effects[0]['from']={'clay':3,'heat':0.01};
+					G.getDict('firekeeper').modes[1]['desc']='Craft [pot]s from 10 [mud] each; requires [heat].';
+					G.getDict('potter').effects[1]['from']={'mud':10',heat':0.01};
+				}
+			],
 			chance:3,
 		});
 
