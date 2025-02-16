@@ -10,8 +10,8 @@ G.AddData({
 		POPULATION FIX
 		=======================================================================================*/
 
-		G.props['clothes things']={'basic clothes':[0.1,0.1],'primitive clothes':[0,0]}
-		G.props['warm things']={'fire pit':[10,0.1,0.1],'heat':[1,0.1,0.1]}
+		G.props['clothes things']={'basic clothes':[0.1,0.1],'primitive clothes':[0,0]};
+		G.props['warm things']={'fire pit':[10,0.1,0.1],'heat':[1,0.1,0.1]};
 		
 		G.getDict('population').tick=function(me,tick){
 			//this.displayName=G.getName('inhabs');
