@@ -22,7 +22,7 @@ G.AddData({
 			replacement:'fire pit',
 			tick:function(me,tick)
 			{
-				if (me.replacement) me.hidden=true; else me.hidden=false;
+				//if (me.replacement) me.hidden=true; else me.hidden=false;
 				var toSpoil=me.amount*0.001;
 				var spent=G.lose(me.name,randomFloor(toSpoil),'decay');
 			}
@@ -39,6 +39,7 @@ G.AddData({
 			cost:{'insight':25},
 			req:{'stone-knapping':true, 'fire-making':true},
 			effects:[
+				{'type':'function', func:function(){G.getDict('fipe pit').hidden=true; G.getDict('heat').hidden=false}}
 			],
 			chance:3,
 		});
