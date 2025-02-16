@@ -7,6 +7,47 @@ G.AddData({
 	requires:['Default dataset*'],
 	func:function(){
 		/*=====================================================================================
+		FIXES
+		=======================================================================================*/
+		
+		G.getDict('fire pit').replacement='heat';
+		G.getDict('fire pit').tick=function(){
+			if (me.replacement) me.hidden=true; else me.hidden=false;
+			var toSpoil=me.amount*0.01;
+			var spent=G.lose(me.name,randomFloor(toSpoil),'decay');
+		};
+		
+		/*=====================================================================================
+		RESOURCES
+		=======================================================================================*/
+		
+		new G.Res({
+			name:'heat',
+			displayName:'Heat',
+			desc:'Keeps your tribe warm; each heat reduces illness for 1 people.//Used by some types of crafting.//Will cool over time.',
+			icon:[0,0],
+			tick:function(me,tick)
+			{
+				var toSpoil=me.amount*0.001;
+				var spent=G.lose(me.name,randomFloor(toSpoil),'decay');
+			}
+		});
+		
+		/*=====================================================================================
+		RESOURCES
+		=======================================================================================*/
+
+		new G.Tech({
+			name:'advancent fire sources',
+			desc:'@unlocks [heat]<>[heat] replaces [fire pit]s and does the same thing but only keeps one person warm.',
+			icon:[0,0],
+			cost:{'insight':15},
+			req:{'fire-making':true},
+			effects:[],
+			chance:3,
+		});
+
+		/*=====================================================================================
 		POPULATION FIX
 		=======================================================================================*/
 
@@ -268,46 +309,5 @@ G.AddData({
 			}
 			else if (G.T>0) {G.GameOver();}
 		};
-		
-		/*=====================================================================================
-		FIXES
-		=======================================================================================*/
-		
-		G.getDict('fire pit').replacement='heat';
-		G.getDict('fire pit').tick=function(){
-			if (me.replacement) me.hidden=true; else me.hidden=false;
-			var toSpoil=me.amount*0.01;
-			var spent=G.lose(me.name,randomFloor(toSpoil),'decay');
-		};
-		
-		/*=====================================================================================
-		RESOURCES
-		=======================================================================================*/
-		
-		new G.Res({
-			name:'heat',
-			displayName:'Heat',
-			desc:'Keeps your tribe warm; each heat reduces illness for 1 people.//Used by some types of crafting.//Will cool over time.',
-			icon:[0,0],
-			tick:function(me,tick)
-			{
-				var toSpoil=me.amount*0.001;
-				var spent=G.lose(me.name,randomFloor(toSpoil),'decay');
-			}
-		});
-		
-		/*=====================================================================================
-		RESOURCES
-		=======================================================================================*/
-
-		new G.Tech({
-			name:'advancent fire sources',
-			desc:'@unlocks [heat]<>[heat] replaces [fire pit]s and does the same thing but only keeps one person warm.',
-			icon:[0,0],
-			cost:{'insight':15},
-			req:{'fire-making':true},
-			effects:[],
-			chance:3,
-		});
 	}
 });
