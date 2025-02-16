@@ -10,8 +10,8 @@ G.AddData({
 		POPULATION FIX
 		=======================================================================================*/
 
-		G.props['clothes things']={'basic clothes':[0.1,0.1],'primitive clothes':[0,0]};
-		G.props['warm things']={'fire pit':[10,0.1,0.1],'heat':[1,0.1,0.1]};
+		G.props['clothesThings']={'basic clothes':[0.1,0.1],'primitive clothes':[0,0]};
+		G.props['warmThings']={'fire pit':[10,0.1,0.1],'heat':[1,0.1,0.1]};
 		
 		G.getDict('population').tick=function(me,tick){
 			//this.displayName=G.getName('inhabs');
@@ -120,7 +120,7 @@ G.AddData({
 				}
 				
 				//clothing
-				var objects=G.props['clothes things'];
+				var objects=G.props['clothesThings'];
 				var leftout=me.amount;
 				var prev=leftout;
 				var fulfilled=0;
@@ -135,7 +135,7 @@ G.AddData({
 				G.gain('health',-leftout*0.15,'no clothing');
 				
 				//fire
-				var objects=G.props['warm things'];
+				var objects=G.props['warmThings'];
 				var leftout=me.amount;
 				var prev=leftout;
 				var fulfilled=0;
