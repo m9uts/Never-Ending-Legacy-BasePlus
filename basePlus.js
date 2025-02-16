@@ -6,16 +6,6 @@ G.AddData({
 	manifest:0,
 	requires:['Default dataset*'],
 	func:function(){
-		/*=====================================================================================
-		FIXES
-		=======================================================================================*/
-		
-		G.getDict('fire pit').replacement='heat';
-		G.getDict('fire pit').tick=function(){
-			if (me.replacement) me.hidden=true; else me.hidden=false;
-			var toSpoil=me.amount*0.01;
-			var spent=G.lose(me.name,randomFloor(toSpoil),'decay');
-		};
 		
 		/*=====================================================================================
 		RESOURCES
@@ -32,6 +22,12 @@ G.AddData({
 				var spent=G.lose(me.name,randomFloor(toSpoil),'decay');
 			}
 		});
+		G.getDict('fire pit').replacement='heat';
+		G.getDict('fire pit').tick=function(){
+			if (me.replacement) me.hidden=true; else me.hidden=false;
+			var toSpoil=me.amount*0.01;
+			var spent=G.lose(me.name,randomFloor(toSpoil),'decay');
+		};
 		
 		/*=====================================================================================
 		RESOURCES
