@@ -42,18 +42,18 @@ G.AddData({
 			req:{'fire-making':true,'cities':true},
 			effects:[
 				{'type':'function',func:function(){
-					G.getDict('firekeeper').modes[0]['desc']='Make 10 [heat] from 20 [stick]s each.';
+					G.getDict('firekeeper').modes['stick fires']['desc']='Make 10 [heat] from 20 [stick]s each.';
 					G.getDict('firekeeper').effects[0]['into']={'heat':10};
-					G.getDict('firekeeper').modes[1]['desc']='Turn [meat] and [seafood] into [cooked meat] and [cooked seafood] with [heat]';
+					G.getDict('firekeeper').modes['cook']['desc']='Turn [meat] and [seafood] into [cooked meat] and [cooked seafood] with [heat]';
 				 	G.getDict('firekeeper').effects[1]['from']={'meat':1,'heat':0.01};
 					G.getDict('firekeeper').effects[2]['from']={'seafood':1,'heat':0.01};
-					G.getDict('firekeeper').modes[2]['desc']='Turn 1 [meat] or [seafood] into 2 [cured meat] or [cured seafood] using [salt] with [heat]';
+					G.getDict('firekeeper').modes['cure']['desc']='Turn 1 [meat] or [seafood] into 2 [cured meat] or [cured seafood] using [salt] with [heat]';
 					G.getDict('firekeeper').effects[3]['from']={'meat':1,'salt':1,'heat':0.01};
 					G.getDict('firekeeper').effects[4]['from']={'seafood':1,'salt':1,'heat':0.01};
 
-					G.getDict('potter').modes[0]['desc']='Craft [pot]s from 3 [clay] each; requires [heat].';
+					G.getDict('potter').modes['clay pots']['desc']='Craft [pot]s from 3 [clay] each; requires [heat].';
 					G.getDict('potter').effects[0]['from']={'clay':3,'heat':0.01};
-					G.getDict('firekeeper').modes[1]['desc']='Craft [pot]s from 10 [mud] each; requires [heat].';
+					G.getDict('firekeeper').modes['mud pots']['desc']='Craft [pot]s from 10 [mud] each; requires [heat].';
 					G.getDict('potter').effects[1]['from']={'mud':10,'heat':0.01};
 				}}
 			],
