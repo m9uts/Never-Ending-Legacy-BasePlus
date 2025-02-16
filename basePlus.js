@@ -53,10 +53,10 @@ G.AddData({
 					G.getDict('potter').modes[0]['desc']='Craft [pot]s from 3 [clay] each; requires [heat].';
 					G.getDict('potter').effects[0]['from']={'clay':3,'heat':0.01};
 					G.getDict('firekeeper').modes[1]['desc']='Craft [pot]s from 10 [mud] each; requires [heat].';
-					G.getDict('potter').effects[1]['from']={'mud':10',heat':0.01};
+					G.getDict('potter').effects[1]['from']={'mud':10,'heat':0.01};
 				}}
 			],
-			chance:3,
+			chance:3
 		});
 
 		/*=====================================================================================
