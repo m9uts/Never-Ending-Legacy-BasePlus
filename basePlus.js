@@ -33,13 +33,13 @@ G.AddData({
 		=======================================================================================*/
 
 		new G.Tech({
-			name:'advancent-fire-sources',
+			name:'advancent fire sources',
 			desc:'@unlocks [heat]<>[heat] replaces [fire pit]s and does the same thing but only keeps one person warm.',
 			icon:[0,0],
-			cost:{'insight':25},
-			req:{'stone-knapping':true, 'fire-making':true},
+			cost:{'insight':15},
+			req:{'fire-making':true},
 			effects:[
-				{'type':'function', func:function(){G.getDict('fipe pit').hidden=true; G.getDict('heat').hidden=false}}
+				{'type':'function', func:function(){G.getDict('fire pit').hidden=true; G.getDict('heat').hidden=false}}
 			],
 			chance:3,
 		});
