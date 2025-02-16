@@ -16,6 +16,7 @@ G.AddData({
 			displayName:'Heat',
 			desc:'Keeps your tribe warm; each heat reduces illness for 1 people.//Used by some types of crafting.//Will decay over time.',
 			icon:[0,0],
+			category:'misc',
 			tick:function(me,tick)
 			{
 				var toSpoil=me.amount*0.001;
